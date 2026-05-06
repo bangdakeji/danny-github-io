@@ -7,7 +7,8 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
         header { background: #222; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        nav a { color: white; margin-left: 1.5rem; text-decoration: none; }
+        nav a { color: white; margin-left: 1rem; text-decoration: none; }
+        nav a.active { border-bottom: 2px solid #007bff; }
         .container { max-width: 1200px; margin: 2rem auto; padding: 0 2rem; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
         .product-card { border: 1px solid #eee; padding: 1rem; border-radius: 8px; text-align: center; }
@@ -18,67 +19,82 @@
 <body>
     <header>
         <div class="logo"><strong>YOUR METAL PARTS</strong></div>
-<nav>
-    <a href="index.html">Home</a>
-    <a href="products.html?cat=all">All Products</a>
-    <a href="products.html?cat=sheet">Sheet Metal</a>
-    <a href="products.html?cat=cnc">CNC Machined</a>
-    <a href="products.html?cat=aluminum">Aluminum Parts</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-</nav>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html?cat=all" class="active">All Products</a>
+            <a href="products.html?cat=sheet">Sheet Metal</a>
+            <a href="products.html?cat=cnc">CNC Machined</a>
+            <a href="products.html?cat=aluminum">Aluminum Parts</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
 
-<div class="product-grid">
+    <div class="container">
+        <h1>Our Products</h1>
+        <div class="product-grid">
+            <!-- 钣金件分类 (data-cat="sheet") -->
+            <div class="product-card" data-cat="sheet">
+                <img src="images/product1.jpg" alt="Sheet Metal Enclosure">
+                <h3>Sheet Metal Enclosure</h3>
+                <p>Custom black metal box for electronic equipment.</p>
+            </div>
+            <div class="product-card" data-cat="sheet">
+                <img src="images/product2.jpg" alt="Cable Management Trunking">
+                <h3>Cable Management Trunking</h3>
+                <p>Gray metal cable tray with dividers for industrial use.</p>
+            </div>
 
-    <div class="product-card" data-cat="sheet">
-        <img src="images/product1.jpg" alt="Sheet Metal Enclosure">
-        <h3>Sheet Metal Enclosure</h3>
-        <p>Custom black metal box for electronic equipment.</p>
+            <!-- CNC加工件分类 (data-cat="cnc") -->
+            <div class="product-card" data-cat="cnc">
+                <img src="images/product3.jpg" alt="CNC Machined Housing">
+                <h3>CNC Machined Housing</h3>
+                <p>Precision aluminum housing for mechanical applications.</p>
+            </div>
+            <div class="product-card" data-cat="cnc">
+                <img src="images/product5.jpg" alt="Stainless Steel Shaft Component">
+                <h3>Stainless Steel Shaft Component</h3>
+                <p>High-precision machined stainless steel part.</p>
+            </div>
+
+            <!-- 铝合金件分类 (data-cat="aluminum") -->
+            <div class="product-card" data-cat="aluminum">
+                <img src="images/product4.jpg" alt="Blue Anodized Flange">
+                <h3>Blue Anodized Flange</h3>
+                <p>Lightweight aluminum flange for racing and machinery.</p>
+            </div>
+        </div>
     </div>
-
-    <div class="product-card" data-cat="sheet">
-        <img src="images/product2.jpg" alt="Cable Trunking">
-        <h3>Cable Management Trunking</h3>
-        <p>Gray metal cable tray with dividers for industrial use.</p>
-    </div>
-
-    <div class="product-card" data-cat="cnc">
-        <img src="images/product3.jpg" alt="CNC Machined Housing">
-        <h3>CNC Machined Housing</h3>
-        <p>Precision aluminum housing for mechanical applications.</p>
-    </div>
-
-    <div class="product-card" data-cat="aluminum">
-        <img src="images/product4.jpg" alt="Blue Anodized Flange">
-        <h3>Blue Anodized Flange</h3>
-        <p>Lightweight aluminum flange for racing and machinery.</p>
-    </div>
-
-    <div class="product-card" data-cat="cnc">
-        <img src="images/product5.jpg" alt="Stainless Steel Shaft">
-        <h3>Stainless Steel Shaft Component</h3>
-        <p>High-precision machined stainless steel part.</p>
-    </div>
-
-</div>
 
     <footer>
         <p>&copy; 2024 Your Company Name. All rights reserved.</p>
     </footer>
-</body>
-    <script>
-let urlParams = new URLSearchParams(window.location.search);
-let cat = urlParams.get('cat');
-if(!cat) cat = 'all';
 
-let items = document.querySelectorAll('.product-card');
-items.forEach(item => {
-    if(cat === 'all' || item.dataset.cat === cat){
-        item.style.display = 'block';
-    }else{
-        item.style.display = 'none';
-    }
-});
-</script>
+    <!-- 分类筛选脚本（已配置好，直接生效） -->
+    <script>
+        // 获取URL里的分类参数
+        let urlParams = new URLSearchParams(window.location.search);
+        let currentCat = urlParams.get('cat');
+        if (!currentCat) currentCat = 'all';
+
+        // 给导航加上active高亮
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.href.includes(`cat=${currentCat}`)) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+
+        // 筛选显示产品
+        let allProducts = document.querySelectorAll('.product-card');
+        allProducts.forEach(card => {
+            if (currentCat === 'all' || card.dataset.cat === currentCat) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    </script>
+</body>
 </html>
