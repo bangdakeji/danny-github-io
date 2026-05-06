@@ -3,21 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Your Company Name</title>
+    <title>Contact Us - Bangda Technology</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
         header { background: #222; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
         nav a { color: white; margin-left: 1.5rem; text-decoration: none; }
         .container { max-width: 600px; margin: 2rem auto; padding: 0 2rem; }
+        .contact-info { margin-bottom: 2rem; line-height: 1.8; }
         form { display: flex; flex-direction: column; gap: 1rem; }
         input, textarea { padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; }
         button { background: #007bff; color: white; border: none; padding: 0.75rem; border-radius: 4px; cursor: pointer; }
-        footer { background: #222; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+        button:hover { background: #0056b3; }
+        footer { background: #222; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+        .footer-contact { margin-bottom: 1rem; }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><strong>YOUR METAL PARTS</strong></div>
+        <div class="logo"><strong>Bangda Technology</strong></div>
         <nav>
             <a href="index.html">Home</a>
             <a href="products.html">Products</a>
@@ -28,20 +31,28 @@
 
     <div class="container">
         <h1>Contact Us</h1>
-        <p>Send us your inquiry and we will reply within 24 hours.</p>
+        <div class="contact-info">
+            <p>Send us your inquiry and we will reply within 24 hours. We are always here to help you with your custom metal parts needs.</p>
+            <p><strong>Email:</strong> wangzhuo12321@outlook.com</p>
+            <p><strong>Phone:</strong> +86 18817175766</p>
+            <p><strong>Address:</strong> No.1919, Industrial Park, City, China<shenzhen longgang pinghu guoji wuliu zhongxin>
+        </div>
         <!-- 表单已配置发送到你的邮箱 -->
         <form action="https://formsubmit.co/wangzhuo12321@outlook.com" method="POST">
-            <input type="hidden" name="_subject" value="New Inquiry from Your Website">
+            <input type="hidden" name="_subject" value="New Inquiry from Bangda Technology Website">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="text" name="subject" placeholder="Subject (e.g., Custom Enclosure Inquiry)">
-            <textarea name="message" rows="5" placeholder="Your Message / Project Details" required></textarea>
+            <textarea name="message" rows="5" placeholder="Your Message / Project Details (e.g., product type, quantity, specifications)" required></textarea>
             <button type="submit">Send Inquiry</button>
         </form>
     </div>
 
     <footer>
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <div class="footer-contact">
+            <p>Email: wangzhuo12321@outlook.com | Phone: +86 18817175766 | Address: No.1919, Industrial Park, City, China<shenzhen longgang pinghu guoji wuliu zhongxin>
+        </div>
+        <p>&copy; 2024 Bangda Technology. All rights reserved.</p>
     </footer>
 </body>
 </html>
