@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products - Your Company Name</title>
+    <title>Our Products - Bangda Technology</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
         header { background: #222; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
@@ -13,12 +13,13 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
         .product-card { border: 1px solid #eee; padding: 1rem; border-radius: 8px; text-align: center; }
         .product-card img { max-width: 100%; height: 200px; object-fit: contain; }
-        footer { background: #222; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+        footer { background: #222; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+        .footer-contact { margin-bottom: 1rem; }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><strong>YOUR METAL PARTS</strong></div>
+        <div class="logo"><strong>Bangda Technology</strong></div>
         <nav>
             <a href="index.html">Home</a>
             <a href="products.html?cat=all" class="active">All Products</a>
@@ -37,37 +38,40 @@
             <div class="product-card" data-cat="sheet">
                 <img src="images/product1.jpg" alt="Sheet Metal Enclosure">
                 <h3>Sheet Metal Enclosure</h3>
-                <p>Custom black metal box for electronic equipment.</p>
+                <p>Custom black metal box for electronic equipment, high precision and durability.</p>
             </div>
             <div class="product-card" data-cat="sheet">
                 <img src="images/product2.jpg" alt="Cable Management Trunking">
                 <h3>Cable Management Trunking</h3>
-                <p>Gray metal cable tray with dividers for industrial use.</p>
+                <p>Gray metal cable tray with dividers for industrial use, easy to install.</p>
             </div>
 
             <!-- CNC加工件分类 (data-cat="cnc") -->
             <div class="product-card" data-cat="cnc">
                 <img src="images/product3.jpg" alt="CNC Machined Housing">
                 <h3>CNC Machined Housing</h3>
-                <p>Precision aluminum housing for mechanical applications.</p>
+                <p>Precision aluminum housing for mechanical applications, tight tolerance.</p>
             </div>
             <div class="product-card" data-cat="cnc">
                 <img src="images/product5.jpg" alt="Stainless Steel Shaft Component">
                 <h3>Stainless Steel Shaft Component</h3>
-                <p>High-precision machined stainless steel part.</p>
+                <p>High-precision machined stainless steel part, corrosion-resistant.</p>
             </div>
 
             <!-- 铝合金件分类 (data-cat="aluminum") -->
             <div class="product-card" data-cat="aluminum">
                 <img src="images/product4.jpg" alt="Blue Anodized Flange">
                 <h3>Blue Anodized Flange</h3>
-                <p>Lightweight aluminum flange for racing and machinery.</p>
+                <p>Lightweight aluminum flange for racing and machinery, anodized surface.</p>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+        <div class="footer-contact">
+            <p>Email: wangzhuo12321@outlook.com | Phone: +86 138XXXX8888 | Address: No.XX, Industrial Park, City, China</p>
+        </div>
+        <p>&copy; 2024 Bangda Technology. All rights reserved.</p>
     </footer>
 
     <!-- 分类筛选脚本（已配置好，直接生效） -->
