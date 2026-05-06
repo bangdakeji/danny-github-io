@@ -13,6 +13,10 @@
         .btn { display: inline-block; background: #007bff; color: white; padding: 0.75rem 2rem; border-radius: 4px; text-decoration: none; margin-top: 1rem; }
         .features { display: flex; justify-content: center; gap: 2rem; padding: 3rem 2rem; flex-wrap: wrap; }
         .feature { max-width: 300px; text-align: center; }
+        .category-section { background: #fff; padding: 3rem 2rem; text-align: center; }
+        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+        .category-card { border: 1px solid #eee; padding: 2rem; border-radius: 8px; text-decoration: none; color: #333; transition: all 0.3s ease; }
+        .category-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.1); transform: translateY(-5px); }
         footer { background: #222; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
     </style>
 </head>
@@ -30,7 +34,26 @@
     <section class="hero">
         <h1>Custom Metal Fabrication & CNC Machining</h1>
         <p>High-quality sheet metal enclosures, precision machined parts, and custom aluminum components.</p>
-        <a href="products.html" class="btn">View Our Products</a>
+        <a href="products.html" class="btn">View All Products</a>
+    </section>
+
+    <!-- 新增：产品分类快捷入口模块 -->
+    <section class="category-section">
+        <h2>Our Product Categories</h2>
+        <div class="category-grid">
+            <a href="products.html?cat=sheet" class="category-card">
+                <h3>Sheet Metal Parts</h3>
+                <p>Custom enclosures, trays, and structural parts</p>
+            </a>
+            <a href="products.html?cat=cnc" class="category-card">
+                <h3>CNC Machined Parts</h3>
+                <p>High-precision components for industrial use</p>
+            </a>
+            <a href="products.html?cat=aluminum" class="category-card">
+                <h3>Aluminum Parts</h3>
+                <p>Anodized, lightweight, and corrosion-resistant</p>
+            </a>
+        </div>
     </section>
 
     <section class="features">
