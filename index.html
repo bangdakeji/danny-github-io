@@ -12,8 +12,8 @@
         .hero h1 { font-size: 2.5rem; margin: 0 0 1rem; }
         .btn { display: inline-block; background: #007bff; color: white; padding: 0.75rem 2rem; border-radius: 4px; text-decoration: none; margin-top: 1rem; }
 
-        /* 统一卡片样式：图片背景 + 遮罩 + 白色文字 */
-        .category-card, .feature {
+        /* 统一所有6个卡片的样式：尺寸、间距、背景完全一致 */
+        .card {
             position: relative;
             border: 1px solid #eee;
             padding: 3rem 2rem;
@@ -26,12 +26,18 @@
             background-repeat: no-repeat;
             overflow: hidden;
             text-align: center;
-            display: block;
-            max-width: 100%;
+            /* 固定卡片尺寸，保证6个完全一致 */
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-sizing: border-box;
         }
 
-        /* 黑色半透明遮罩，保证文字清晰 */
-        .category-card::before, .feature::before {
+        /* 黑色半透明遮罩，文字清晰 */
+        .card::before {
             content: '';
             position: absolute;
             top: 0; left: 0;
@@ -41,35 +47,38 @@
         }
 
         /* 文字在遮罩上方 */
-        .category-card *, .feature * {
+        .card * {
             position: relative;
             z-index: 2;
+            margin: 0;
+        }
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        .card p {
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
 
-        .category-card:hover, .feature:hover {
+        .card:hover {
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             transform: translateY(-5px);
         }
 
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            padding: 3rem 2rem;
-            flex-wrap: wrap;
-        }
-
+        /* 统一6个卡片的网格布局：每行3个，响应式适配 */
         .category-section {
             background: #fff;
             padding: 3rem 2rem;
             text-align: center;
         }
-        .category-grid {
+        .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
+            justify-items: center;
         }
 
         footer {
@@ -101,39 +110,41 @@
         <a href="products.html" class="btn">View All Products</a>
     </section>
 
-    <!-- 产品分类（3个卡片 + 背景图） -->
+    <!-- 6个卡片统一放在一个网格里，样式完全一致 -->
     <section class="category-section">
         <h2>Our Product Categories</h2>
-        <div class="category-grid">
-            <a href="products.html?cat=sheet" class="category-card" style="background-image: url('product1.jpg');">
+        <div class="card-grid">
+            <!-- 卡片1 -->
+            <a href="products.html?cat=sheet" class="card" style="background-image: url('product1.jpg');">
                 <h3>Sheet Metal Parts</h3>
                 <p>Custom enclosures, trays, and structural parts</p>
             </a>
-            <a href="products.html?cat=cnc" class="category-card" style="background-image: url('product2.jpg');">
+            <!-- 卡片2 -->
+            <a href="products.html?cat=cnc" class="card" style="background-image: url('product2.jpg');">
                 <h3>CNC Machined Parts</h3>
                 <p>High-precision components for industrial use</p>
             </a>
-            <a href="products.html?cat=aluminum" class="category-card" style="background-image: url('product3.jpg');">
+            <!-- 卡片3 -->
+            <a href="products.html?cat=aluminum" class="card" style="background-image: url('product3.jpg');">
                 <h3>Aluminum Parts</h3>
                 <p>Anodized, lightweight, and corrosion-resistant</p>
             </a>
+            <!-- 卡片4 -->
+            <a href="products.html#cnc" class="card" style="background-image: url('product4.jpg');">
+                <h3>Precision CNC Machining</h3>
+                <p>Custom parts with tight tolerances, meeting industrial standards</p>
+            </a>
+            <!-- 卡片5 -->
+            <a href="products.html#sheet" class="card" style="background-image: url('product5.jpg');">
+                <h3>Sheet Metal Fabrication</h3>
+                <p>Custom enclosures, brackets for industrial applications</p>
+            </a>
+            <!-- 卡片6 -->
+            <a href="products.html#oem" class="card" style="background-image: url('product6.jpg');">
+                <h3>OEM/ODM Service</h3>
+                <p>From prototype to mass production with fast delivery</p>
+            </a>
         </div>
-    </section>
-
-    <!-- 服务模块（3个卡片 + 背景图）一共 6 个 -->
-    <section class="features">
-        <a href="products.html#cnc" class="feature" style="background-image: url('product4.jpg');">
-            <h3>Precision CNC Machining</h3>
-            <p>Custom parts with tight tolerances, from aluminum to stainless steel, meeting industrial standards.</p>
-        </a>
-        <a href="products.html#sheet" class="feature" style="background-image: url('product5.jpg');">
-            <h3>Sheet Metal Fabrication</h3>
-            <p>Custom enclosures, brackets, and structural parts for industrial applications, with professional craftsmanship.</p>
-        </a>
-        <a href="products.html#oem" class="feature" style="background-image: url('product6.jpg');">
-            <h3>OEM/ODM Service</h3>
-            <p>From prototype to mass production, we support your custom projects with competitive prices and fast delivery.</p>
-        </a>
     </section>
 
     <footer>
