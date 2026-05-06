@@ -18,48 +18,67 @@
 <body>
     <header>
         <div class="logo"><strong>YOUR METAL PARTS</strong></div>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html">Contact</a>
-        </nav>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="products.html?cat=all">All Products</a>
+    <a href="products.html?cat=sheet">Sheet Metal</a>
+    <a href="products.html?cat=cnc">CNC Machined</a>
+    <a href="products.html?cat=aluminum">Aluminum Parts</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+</nav>
     </header>
 
-    <div class="container">
-        <h1>Our Products</h1>
-        <div class="product-grid">
-            <!-- 产品1-7，你上传图片后把src改成你的图片地址即可 -->
-            <div class="product-card">
-                <img src="images/product1.jpg" alt="Sheet Metal Enclosure">
-                <h3>Sheet Metal Enclosure</h3>
-                <p>Custom black metal box for electronic equipment.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/product2.jpg" alt="Cable Trunking">
-                <h3>Cable Management Trunking</h3>
-                <p>Gray metal cable tray with dividers for industrial use.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/product3.jpg" alt="CNC Machined Housing">
-                <h3>CNC Machined Housing</h3>
-                <p>Precision aluminum housing for mechanical applications.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/product4.jpg" alt="Blue Anodized Flange">
-                <h3>Blue Anodized Flange</h3>
-                <p>Lightweight aluminum flange for racing and machinery.</p>
-            </div>
-            <div class="product-card">
-                <img src="images/product5.jpg" alt="Stainless Steel Shaft">
-                <h3>Stainless Steel Shaft Component</h3>
-                <p>High-precision machined stainless steel part.</p>
-            </div>
-        </div>
+<div class="product-grid">
+
+    <div class="product-card" data-cat="sheet">
+        <img src="images/product1.jpg" alt="Sheet Metal Enclosure">
+        <h3>Sheet Metal Enclosure</h3>
+        <p>Custom black metal box for electronic equipment.</p>
     </div>
+
+    <div class="product-card" data-cat="sheet">
+        <img src="images/product2.jpg" alt="Cable Trunking">
+        <h3>Cable Management Trunking</h3>
+        <p>Gray metal cable tray with dividers for industrial use.</p>
+    </div>
+
+    <div class="product-card" data-cat="cnc">
+        <img src="images/product3.jpg" alt="CNC Machined Housing">
+        <h3>CNC Machined Housing</h3>
+        <p>Precision aluminum housing for mechanical applications.</p>
+    </div>
+
+    <div class="product-card" data-cat="aluminum">
+        <img src="images/product4.jpg" alt="Blue Anodized Flange">
+        <h3>Blue Anodized Flange</h3>
+        <p>Lightweight aluminum flange for racing and machinery.</p>
+    </div>
+
+    <div class="product-card" data-cat="cnc">
+        <img src="images/product5.jpg" alt="Stainless Steel Shaft">
+        <h3>Stainless Steel Shaft Component</h3>
+        <p>High-precision machined stainless steel part.</p>
+    </div>
+
+</div>
 
     <footer>
         <p>&copy; 2024 Your Company Name. All rights reserved.</p>
     </footer>
 </body>
+    <script>
+let urlParams = new URLSearchParams(window.location.search);
+let cat = urlParams.get('cat');
+if(!cat) cat = 'all';
+
+let items = document.querySelectorAll('.product-card');
+items.forEach(item => {
+    if(cat === 'all' || item.dataset.cat === cat){
+        item.style.display = 'block';
+    }else{
+        item.style.display = 'none';
+    }
+});
+</script>
 </html>
